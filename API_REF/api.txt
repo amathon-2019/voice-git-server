@@ -1,0 +1,33 @@
+1. 유저 로그인
+요청    POST   
+경로    {API}/user/login
+
+파라미터
+
+{
+  "username": "seokju-na",
+  "displayName": "Seokju Na",
+  "email": "seokju.me@gmail.com",
+  "avatarImageUrl": "...",
+  "profileUrl": "https://github.com/seokju-na"
+}
+
+응답
+response : 
+{
+    REPL_CD     : '000000',     // 정상코드 
+    REPL_MSG    : '정상입니다',  // 
+    REPL_STATUS : 200           // http response 
+
+    --> 이하 3개 프로퍼티는 모든 API 공통필드
+}
+
+2. 레포지터리 
+목록 조회    GET
+
+
+
+
+
+
+
