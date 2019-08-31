@@ -47,6 +47,11 @@
 		<servlet.javax>4.0.1</servlet.javax>
 		<servlet.javax.jsp>2.3.3</servlet.javax.jsp>
 		<servlet.javax.jstl>1.2</servlet.javax.jstl>
+		
+		<!-- AWS Service -->
+		<aws.java.sdk.polly>1.11.622</aws.java.sdk.polly>
+		<googlecode.soundlibs.jlayer>1.0.1.4</googlecode.soundlibs.jlayer>
+		
 	</properties>
 	
 	<dependencies>
@@ -125,7 +130,13 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>${spring}</version>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.6.RELEASE</version>
+		</dependency>
+		
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -274,6 +285,12 @@
 			<version>${app.apache.commons-io}</version>
 		</dependency>
 		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		
 		<!-- 
 			java xml bind 
 			[ java EE & Cordova Modules are removed since Java 11 ] 
@@ -296,24 +313,20 @@
 			<version>2.3.1</version>
 		</dependency>
 		
+		<!-- [ 3rd party Service START ] -->		
 		<dependency>
-	        <groupId>org.springframework.social</groupId>
-	        <artifactId>spring-social-github</artifactId>
-	        <version>1.0.0.BUILD-SNAPSHOT</version>
-	    </dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-polly</artifactId>
+		    <version>${aws.java.sdk.polly}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.soundlibs</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>${googlecode.soundlibs.jlayer}</version>
+		</dependency>
+		<!-- [ 3rd party Service END ] -->
 	</dependencies>
  	
-	<repositories>
-	    <repository>
-	        <id>spring-snapshots</id>
-	        <name>Spring Snapshots</name>
-	        <url>https://repo.spring.io/libs-snapshot</url>
-	        <snapshots>
-	            <enabled>true</enabled>
-	        </snapshots>
-	    </repository>
-	</repositories>
-			
     <build>
     	<defaultGoal>install</defaultGoal>
     	<directory>${basedir}/target</directory>
