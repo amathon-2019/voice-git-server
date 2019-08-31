@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.app.mapper.user">
+
+	<!-- 유저 회원 가입  -->
+    <insert id="signup" parameterType="commonVO">
+    <![CDATA[
+		INSERT INTO TB_USER (user_name, display_name, email, avatar_image_url, profile_url, reg_time)
+		VALUES (#{username} , #{displayName}, #{email}, #{avatarImageUrl}, #{profileUrl}, now() )
+    ]]>
+    </insert>
+	
+	<!-- 단일 유저 정보 선택 -->
+   	<select id="selectUser" parameterType="commonVO" resultType="commonVO">
+    <![CDATA[
+		SELECT 
+			   user_seq         as USER_SEQ,
+			   user_name        as USER_NAME,
+			   display_name     as DISPLAY_NAME,
+			   email            as EMAIL,
+			   avatar_image_url as AVATAR_IMAGE_URL,
+			   profile_url      as PROFILE_URL
+		FROM TB_USER
+		where USER_NAME = #{userName};
+
+	]]>
+    </select>
+</mapper>
