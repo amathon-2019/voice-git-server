@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.common</groupId>
+	<artifactId>voice_git_server</artifactId>
+	<name>voice_git_server</name>
+	<packaging>war</packaging>
+	<version>1.0.0-BUILD-SNAPSHOT</version>
+	
+	<properties>
+		<!-- Java -->
+		<java-version>11</java-version>
+		
+		<!-- Encoding -->
+		<project.build.sourceEncoding>    UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<!-- Spring -->
+		<spring>5.1.4.RELEASE</spring>
+		<spring.mybatis>2.0.0</spring.mybatis>
+		
+		<!-- App -->
+		<app.junit>4.12</app.junit>
+		<app.aspectj>1.8.13</app.aspectj>
+		<app.mybatis>3.5.0</app.mybatis>		
+		<app.jackson>2.9.9</app.jackson>
+		<app.ehcache>2.10.6</app.ehcache>
+		<app.jwt.jjwt>0.9.1</app.jwt.jjwt>
+		<app.apache.http-client>4.5.2</app.apache.http-client>
+		<app.apache.http-client.core>4.4.6</app.apache.http-client.core>
+		<app.apache.commons-fileupload>1.4</app.apache.commons-fileupload>
+		<app.apache.commons-io>2.6</app.apache.commons-io>
+					
+		<!-- DB -->
+		<db.hikari>3.3.0</db.hikari>
+		<db.mysql-connector>8.0.14</db.mysql-connector>
+		
+		<!-- Log -->
+		<log.logback>1.0.13</log.logback>
+		<log.slf4j>1.7.5</log.slf4j>
+		
+		<!-- ORM -->
+		<orm.jpa.hibernate>4.2.1.Final</orm.jpa.hibernate>
+		
+		<!-- Servlet -->
+		<servlet.javax>4.0.1</servlet.javax>
+		<servlet.javax.jsp>2.3.3</servlet.javax.jsp>
+		<servlet.javax.jstl>1.2</servlet.javax.jstl>
+		
+		<!-- AWS Service -->
+		<aws.java.sdk.polly>1.11.622</aws.java.sdk.polly>
+		<googlecode.soundlibs.jlayer>1.0.1.4</googlecode.soundlibs.jlayer>
+		
+	</properties>
+	
+	<dependencies>
+
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring}</version>
+		</dependency>
+			
+		<!-- Spring and Transactions -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				 </exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+	      	<groupId>org.springframework</groupId>
+	      	<artifactId>spring-aop</artifactId>
+	      	<version>${spring}</version>
+	    </dependency>
+	    
+	    <!-- Spring Security -->
+	    <dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.6.RELEASE</version>
+		</dependency>
+		
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${app.junit}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring AOP -->
+	    <dependency>
+	      	<groupId>org.aspectj</groupId>
+	      	<artifactId>aspectjrt</artifactId>
+	      	<version>${app.aspectj}</version>
+	    </dependency>
+	    
+	    <dependency>
+	      	<groupId>org.aspectj</groupId>
+	      	<artifactId>aspectjtools</artifactId>
+	      	<version>${app.aspectj}</version>
+	    </dependency>
+	    
+	    <!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${orm.jpa.hibernate}</version>
+		</dependency>
+		
+		<!-- JDBC [Hikari conf] -->
+	   	<dependency>
+	        <groupId>com.zaxxer</groupId>
+	        <artifactId>HikariCP</artifactId>
+	        <version>${db.hikari}</version>
+	    </dependency>
+	    
+	    <!-- MySQL Connector  -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>${db.mysql-connector}</version>
+		</dependency>
+		
+		<!-- MyBatis -->
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis</artifactId>
+		    <version>${app.mybatis}</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>org.mybatis</groupId>
+		    <artifactId>mybatis-spring</artifactId>
+		    <version>${spring.mybatis}</version>
+		</dependency>
+		
+		<!-- Logging with SLF4J & LogBack -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${log.slf4j}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-core</artifactId>
+		    <version>${log.logback}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${log.logback}</version>
+		</dependency>
+		
+		<!-- Servlet -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>${servlet.javax}</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.servlet.jsp</groupId>
+		    <artifactId>javax.servlet.jsp-api</artifactId>
+		    <version>${servlet.javax.jsp}</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${servlet.javax.jstl}</version>
+		</dependency>
+
+		<!-- Jackson -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-core</artifactId>
+		    <version>${app.jackson}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${app.jackson}</version>
+		</dependency>
+		
+		<!-- Ehcache -->
+		<dependency>
+		    <groupId>net.sf.ehcache</groupId>
+		    <artifactId>ehcache</artifactId>
+		    <version>${app.ehcache}</version>
+		</dependency>
+		
+		<!-- JWT Tocken Library -->
+		<dependency>
+	    	<groupId>io.jsonwebtoken</groupId>
+	    	<artifactId>jjwt</artifactId>
+	    	<version>${app.jwt.jjwt}</version>
+		</dependency>
+		
+		<!-- HTTP client  -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${app.apache.http-client.core}</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${app.apache.http-client}</version>
+        </dependency>
+        
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${app.apache.commons-fileupload}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${app.apache.commons-io}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		    <version>2.5.0</version>
+		</dependency>
+		
+		<!-- 
+			java xml bind 
+			[ java EE & Cordova Modules are removed since Java 11 ] 
+		-->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		
+		<!-- [ 3rd party Service START ] -->		
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-polly</artifactId>
+		    <version>${aws.java.sdk.polly}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.soundlibs</groupId>
+			<artifactId>jlayer</artifactId>
+			<version>${googlecode.soundlibs.jlayer}</version>
+		</dependency>
+		<!-- [ 3rd party Service END ] -->
+	</dependencies>
+ 	
+    <build>
+    	<defaultGoal>install</defaultGoal>
+    	<directory>${basedir}/target</directory>
+    	<finalName>${project.artifactId}</finalName>
+    	
+    	<!-- java source package path settings -->
+    	<sourceDirectory>${basedir}/src/java</sourceDirectory>
+    	
+    	<!-- build package path settings -->
+    	<outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory>
+    	
+    	<!-- test source package path settings -->
+    	<testSourceDirectory>${basedir}/src/test</testSourceDirectory>
+    	
+    	<!-- resource package path settings -->
+    	<resources>
+    		<resource>
+    			<directory>${basedir}/src/resources</directory>
+    		</resource>
+    	</resources>
+    	
+    	<!-- test resource package path settings -->
+    	<testResources>
+    		<testResource>
+    			<directory>${basedir}/src/test</directory>
+    		</testResource>
+    	</testResources>
+	
+		<plugins>
+			<!-- AWS EC2 세팅 -->
+        	<!-- Embed Tomcat PlugIn [ goal name : `tomcat7: deploy` ] -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://www.amathon-voice-git.ga/deploy</url>
+					<path>/api</path>
+					<username>sight</username>
+    				<password>bksul40</password>
+					<update>true</update>
+				</configuration>
+			</plugin>
+		
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                </configuration>
+            </plugin>
+            
+            <plugin>            
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-war-plugin</artifactId>
+			  <configuration>
+			    <webXml>${basedir}/webapp/WEB-INF/web.xml</webXml>   
+			    <warSourceDirectory>${basedir}/webapp</warSourceDirectory>     
+			  </configuration>
+			</plugin>
+		</plugins>
+    </build>
+</project>
