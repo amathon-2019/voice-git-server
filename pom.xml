@@ -21,7 +21,7 @@
 		<spring.mybatis>2.0.0</spring.mybatis>
 		
 		<!-- App -->
-		<app.junit>4.12</app.junit>
+		<app.junit>4.13.1</app.junit>
 		<app.aspectj>1.8.13</app.aspectj>
 		<app.mybatis>3.5.0</app.mybatis>		
 		<app.jackson>2.9.9</app.jackson>
