@@ -30,7 +30,7 @@
 		<app.apache.http-client>4.5.2</app.apache.http-client>
 		<app.apache.http-client.core>4.4.6</app.apache.http-client.core>
 		<app.apache.commons-fileupload>1.4</app.apache.commons-fileupload>
-		<app.apache.commons-io>2.6</app.apache.commons-io>
+		<app.apache.commons-io>2.7</app.apache.commons-io>
 					
 		<!-- DB -->
 		<db.hikari>3.3.0</db.hikari>
