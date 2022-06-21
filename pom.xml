@@ -34,7 +34,7 @@
 					
 		<!-- DB -->
 		<db.hikari>3.3.0</db.hikari>
-		<db.mysql-connector>8.0.14</db.mysql-connector>
+		<db.mysql-connector>8.0.28</db.mysql-connector>
 		
 		<!-- Log -->
 		<log.logback>1.0.13</log.logback>
