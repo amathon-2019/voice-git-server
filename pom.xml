@@ -24,7 +24,7 @@
 		<app.junit>4.12</app.junit>
 		<app.aspectj>1.8.13</app.aspectj>
 		<app.mybatis>3.5.0</app.mybatis>		
-		<app.jackson>2.9.9</app.jackson>
+		<app.jackson>2.12.7.1</app.jackson>
 		<app.ehcache>2.10.6</app.ehcache>
 		<app.jwt.jjwt>0.9.1</app.jwt.jjwt>
 		<app.apache.http-client>4.5.2</app.apache.http-client>
